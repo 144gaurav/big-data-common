@@ -42,6 +42,7 @@ public class BroadcastMap {
         });
         addressDf.show(false);
         finalDf.show(false);
+        finalDf.write().mode("overwrite").parquet("C:/SparkWorkspace/output");
     }
 
     public static Column fetchCityNameCall() {
