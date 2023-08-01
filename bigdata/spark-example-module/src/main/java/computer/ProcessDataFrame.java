@@ -64,7 +64,7 @@ Dataset<Row> finalDf = inputDf
     static Map<String, String> getBroadCastMapFromFile() throws IOException {
         Map<String, String> map
                 = new HashMap<String, String>();
-        File file = new File("C:\\Users\\144ga\\IdeaProjects\\big-data-common\\bigdata\\spark-example-module\\target\\classes\\city.csv");
+        File file = new File("bigdata/spark-example-module/src/main/resources/city.csv");
         BufferedReader br = new BufferedReader(new FileReader(file));
         String line = null;
 

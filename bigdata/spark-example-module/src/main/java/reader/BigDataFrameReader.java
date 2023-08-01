@@ -17,7 +17,9 @@ public class BigDataFrameReader implements Reader<Dataset<Row>> , Serializable {
                 .format("csv")
                 .option("header", "true")
                 .option("delimiter", "|")
-                .load("C:\\Users\\144ga\\IdeaProjects\\big-data-common\\bigdata\\spark-example-module\\target\\classes\\"+fileName+".csv");
+                .load("bigdata/spark-example-module/src/main/resources/"+fileName+".csv");
+
+        //.load("C:\\Users\\144ga\\IdeaProjects\\big-data-common\\bigdata\\spark-example-module\\target\\classes\\"+fileName+".csv");
         return addressDf;
     }
 }
