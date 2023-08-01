@@ -47,6 +47,7 @@ public class DataFrameSingleCsvWriter implements Writer<Dataset<Row>>{
                         .option("header",hasHeader)
                         .option("delimiter",delimiter);
         applyPartitioning(dataFrameWriter).csv(this.path);
+        System.out.println("dataframe written successfully");
     }
 
     private DataFrameWriter<Row> applyPartitioning(DataFrameWriter<Row> writerBuilder){

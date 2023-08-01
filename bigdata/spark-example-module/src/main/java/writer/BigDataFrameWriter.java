@@ -16,13 +16,12 @@ public class BigDataFrameWriter implements Writer<SampleSparkDataClass> {
             .delimiter(";")
             .numPartition(1)
             .path("target/classes/output")
-            //.partitionKeys(Arrays.asList("state","city"))
+            .partitionKeys(Arrays.asList("state","city"))
             .hasHeader(true)
             .build();
 
     @Override
     public void accept(SampleSparkDataClass sampleSparkDataClass) {
         writer.accept(sampleSparkDataClass.data);
-        DataFrameWriter<Row> x = sampleSparkDataClass.data.repartition(1).write();
     }
 }

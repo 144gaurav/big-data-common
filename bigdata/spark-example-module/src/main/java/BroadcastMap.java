@@ -40,8 +40,8 @@ public class BroadcastMap {
                 .stream().forEach(x -> {
             System.out.println("{"+x.getKey() + " -> " + x.getValue() + " } ");
         });
-        addressDf.show(false);
-        finalDf.show(false);
+//        addressDf.show(false);
+//        finalDf.show(false);
         finalDf.write().mode("overwrite").parquet("C:/SparkWorkspace/output");
     }
 

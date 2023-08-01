@@ -2,6 +2,7 @@ package job;
 
 import computer.ProcessDataFrame;
 import data.SampleSparkDataClass;
+import lombok.RequiredArgsConstructor;
 import org.apache.spark.sql.DataFrameWriter;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -10,11 +11,13 @@ import reader.Reader;
 import writer.BigDataFrameWriter;
 import writer.Writer;
 
+@RequiredArgsConstructor
 public class BigDataSparkJob implements SparkJob<Dataset<Row>, SampleSparkDataClass>{
 
+    private final String fileName;
     @Override
     public Reader<Dataset<Row>> reader(){
-        return new BigDataFrameReader();
+        return new BigDataFrameReader(fileName);
     }
 
     @Override
@@ -24,6 +27,8 @@ public class BigDataSparkJob implements SparkJob<Dataset<Row>, SampleSparkDataCl
 
     @Override
     public SampleSparkDataClass apply(Dataset<Row> inputDf){
+        System.out.println("Inside apply method");
+        inputDf.show();
         return new SampleSparkDataClass(new ProcessDataFrame().get(inputDf));
     }
 
