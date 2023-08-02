@@ -15,9 +15,10 @@ import writer.Writer;
 public class BigDataSparkJob implements SparkJob<Dataset<Row>, SampleSparkDataClass>{
 
     private final String fileName;
+    private final Reader<Dataset<Row>> reader;
     @Override
     public Reader<Dataset<Row>> reader(){
-        return new BigDataFrameReader(fileName);
+        return reader;
     }
 
     @Override
